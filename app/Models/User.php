@@ -41,4 +41,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function PetugasCheckin(){
+        return $this->hasMany(Guest::class, 'petugas_checkin', 'id');
+        // model ini memlilki banyak tamu
+    }
+
+    public function PetugasCheckout(){
+        return $this->hasMany(Guest::class,'petugas_checkout', 'id');
+        // model ini memiliki banyak tamu
+    }
+
+    // ini membuat relasi antar tabel dengan cara menggunakan HasMany dan belangsTo 
+    // HasMany artinya memiliki banyak data dan tabel dari tabel tamu dan 
+    // belangsTo artinya satu tamu dimiliki satu petugas
 }

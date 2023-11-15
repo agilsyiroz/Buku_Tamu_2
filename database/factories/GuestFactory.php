@@ -18,12 +18,13 @@ class GuestFactory extends Factory
     {
         return [
             'nama_tamu' => fake()->name(),
+            'petugas_checkin'=> mt_rand(1,10),
             'keperluan_tamu' => fake()->realTextBetween($minNbchars = 20, $maxNbchars = 40,$indexSize = 5),
             'bertemu' => fake()->name(),
             'asal_instansi'=> fake()->company(),
             'jenis_kelamin' => $this->getRanArray(['Pria', 'Wanita']),
             'telepon' => fake()->e164PhoneNumber(),
-            'tanggal_checkin'=> fake()->dateTimeBetween('-2 year', 'now')
+            'tanggal_checkin'=> fake()->dateTimeBetween('-2 year', 'now'),
         ];
     }
     private function getRanArray($data = []){

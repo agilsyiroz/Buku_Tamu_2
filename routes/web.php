@@ -19,3 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/guest', [Guestcontroller::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
